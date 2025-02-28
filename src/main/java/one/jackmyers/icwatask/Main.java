@@ -1,4 +1,4 @@
-package one.jackmyers;
+package one.jackmyers.icwatask;
 
 public class Main {
     public static void main(String[] args) {
