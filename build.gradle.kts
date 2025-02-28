@@ -1,5 +1,6 @@
 plugins {
     id("java")
+    id("com.diffplug.spotless") version "7.0.2"
 }
 
 group = "one.jackmyers"
@@ -16,4 +17,19 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+configure<com.diffplug.gradle.spotless.SpotlessExtension> {
+    java {
+        importOrder()
+        removeUnusedImports()
+        cleanthat()
+        googleJavaFormat()
+        formatAnnotations()
+    }
+
+    kotlinGradle {
+        target("*.gradle.kts")
+        ktlint()
+    }
 }
