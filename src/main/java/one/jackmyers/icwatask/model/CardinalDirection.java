@@ -23,4 +23,13 @@ public enum CardinalDirection {
       case WEST -> NORTH;
     };
   }
+
+  public Vector2 asVector() {
+    return switch (this) {
+      case NORTH -> new Vector2(0, 1);
+      case EAST -> new Vector2(1, 0);
+      case SOUTH -> new Vector2(0, -1);
+      case WEST -> new Vector2(-1, 0);
+    };
+  }
 }
