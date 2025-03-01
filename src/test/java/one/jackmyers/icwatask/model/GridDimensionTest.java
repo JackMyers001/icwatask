@@ -14,7 +14,7 @@ class GridDimensionTest {
   @DisplayName("Should accept all positive integers")
   void shouldAcceptAllPositiveIntegers(int validValue) {
     // Act
-    var gridDimension = new GridDimension(validValue);
+    final var gridDimension = new GridDimension(validValue);
 
     // Assert
     assertEquals(validValue, gridDimension.value());

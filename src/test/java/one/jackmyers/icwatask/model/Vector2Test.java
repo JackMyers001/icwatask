@@ -13,7 +13,7 @@ class Vector2Test {
   @MethodSource("addCases")
   void shouldAddSuccessfully(Vector2 a, Vector2 b, Vector2 expected) {
     // Act
-    var actual = a.add(b);
+    final var actual = a.add(b);
 
     // Assert
     assertEquals(expected, actual);

@@ -20,7 +20,7 @@ class GridSizeTest {
   }
 
   static Stream<Arguments> nullDimensionCases() {
-    var validDimension = new GridDimension(5);
+    final var validDimension = new GridDimension(5);
 
     return Stream.of(
         Arguments.of(null, validDimension),
@@ -49,10 +49,10 @@ class GridSizeTest {
   @DisplayName("Should work with a 1x1 grid")
   void shouldWorkWithSingleCellGrid(int x, int y, boolean expected) {
     // Arrange
-    var gridSize = new GridSize(1, 1);
+    final var gridSize = new GridSize(1, 1);
 
     // Act
-    var actual = gridSize.positionIsWithinBounds(x, y);
+    final var actual = gridSize.positionIsWithinBounds(x, y);
 
     // Assert
     assertEquals(expected, actual);
@@ -89,10 +89,10 @@ class GridSizeTest {
   @DisplayName("Should work with a non-square grid")
   void shouldWorkWithNonSquareGrid(int x, int y, boolean expected) {
     // Arrange
-    var gridSize = new GridSize(7, 3);
+    final var gridSize = new GridSize(7, 3);
 
     // Act
-    var actual = gridSize.positionIsWithinBounds(x, y);
+    final var actual = gridSize.positionIsWithinBounds(x, y);
 
     // Assert
     assertEquals(expected, actual);
