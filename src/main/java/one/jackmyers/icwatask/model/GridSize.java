@@ -15,4 +15,8 @@ public record GridSize(GridDimension width, GridDimension height) {
   public boolean positionIsWithinBounds(int x, int y) {
     return 0 <= x && x < width.value() && 0 <= y && y < height.value();
   }
+
+  public boolean positionIsWithinBounds(Vector2 position) {
+    return positionIsWithinBounds(position.x(), position.y());
+  }
 }
