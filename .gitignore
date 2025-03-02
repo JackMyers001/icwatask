@@ -40,3 +40,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+### ANTLR4 generated files ###
+src/main/java/one/jackmyers/icwatask/parser/generated
