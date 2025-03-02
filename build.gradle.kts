@@ -1,5 +1,6 @@
 plugins {
     id("antlr")
+    id("application")
     id("java")
     id("com.diffplug.spotless") version "7.0.2"
 }
@@ -30,6 +31,10 @@ tasks.generateGrammarSource {
 
 tasks.test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass = "one.jackmyers.icwatask.IcwaTask"
 }
 
 configure<com.diffplug.gradle.spotless.SpotlessExtension> {
