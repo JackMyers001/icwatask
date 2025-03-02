@@ -15,6 +15,7 @@ dependencies {
     antlr("org.antlr:antlr4:4.13.2")
 
     implementation("com.github.stefanbirkner:system-lambda:1.2.1")
+    implementation("info.picocli:picocli:4.7.6")
     implementation("org.apache.commons:commons-lang3:3.17.0")
     implementation("org.jetbrains:annotations:24.0.0")
 
