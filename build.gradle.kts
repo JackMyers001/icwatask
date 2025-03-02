@@ -20,8 +20,9 @@ dependencies {
     implementation("org.apache.commons:commons-lang3:3.17.0")
     implementation("org.jetbrains:annotations:24.0.0")
 
-    testImplementation(platform("org.junit:junit-bom:5.10.0"))
+    testImplementation(platform("org.junit:junit-bom:5.12.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 
 tasks.generateGrammarSource {
