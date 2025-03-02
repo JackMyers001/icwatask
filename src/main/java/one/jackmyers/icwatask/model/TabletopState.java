@@ -1,5 +1,6 @@
 package one.jackmyers.icwatask.model;
 
+import java.util.List;
 import org.jetbrains.annotations.Nullable;
 
 public class TabletopState {
@@ -34,6 +35,10 @@ public class TabletopState {
       case Command.RightCommand() -> robotRotateRight();
       case Command.ReportCommand() -> report();
     }
+  }
+
+  public void handleCommands(List<Command> commands) {
+    commands.forEach(this::handleCommand);
   }
 
   private void robotPlace(Vector2 position, CardinalDirection direction) {

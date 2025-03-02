@@ -3,6 +3,7 @@ package one.jackmyers.icwatask.model;
 import static com.github.stefanbirkner.systemlambda.SystemLambda.tapSystemOut;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.List;
 import java.util.stream.Stream;
 import one.jackmyers.icwatask.model.Command.PlaceCommand;
 import org.apache.commons.lang3.StringUtils;
@@ -47,6 +48,27 @@ class TabletopStateTest {
         Arguments.of(CardinalDirection.EAST, CardinalDirection.SOUTH, Command.RIGHT),
         Arguments.of(CardinalDirection.SOUTH, CardinalDirection.WEST, Command.RIGHT),
         Arguments.of(CardinalDirection.WEST, CardinalDirection.NORTH, Command.RIGHT));
+  }
+
+  static Stream<Arguments> multipleCommandCases() {
+    return Stream.of(
+        // No commands
+        Arguments.of(List.of(), null),
+
+        // Single command
+        Arguments.of(List.of(Command.MOVE), null),
+        Arguments.of(
+            List.of(new PlaceCommand(Vector2.ZERO, CardinalDirection.NORTH)),
+            new RobotState(Vector2.ZERO, CardinalDirection.NORTH)),
+
+        // Multiple commands
+        Arguments.of(List.of(Command.MOVE, Command.MOVE, Command.RIGHT), null),
+        Arguments.of(
+            List.of(
+                new PlaceCommand(Vector2.ZERO, CardinalDirection.NORTH),
+                Command.MOVE,
+                Command.RIGHT),
+            new RobotState(Vector2.Y, CardinalDirection.EAST)));
   }
 
   // endregion
@@ -309,6 +331,22 @@ class TabletopStateTest {
   }
 
   // endregion
+
+  @ParameterizedTest
+  @MethodSource("multipleCommandCases")
+  @DisplayName("When multiple commands received, they should be processed correctly")
+  void when_multipleCommands_then_shouldProcessCorrectly(
+      List<Command> commands, RobotState expected) {
+    // Arrange
+    final var state = new TabletopState();
+
+    // Act
+    state.handleCommands(commands);
+    final var actual = state.getRobotState();
+
+    // Assert
+    assertEquals(expected, actual);
+  }
 
   @Test
   void icwaExampleInput() throws Exception {
