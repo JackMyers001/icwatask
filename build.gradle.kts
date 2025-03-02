@@ -3,6 +3,7 @@ plugins {
     id("application")
     id("java")
     id("com.diffplug.spotless") version "7.0.2"
+    id("com.gradleup.shadow") version "9.0.0-beta9"
 }
 
 group = "one.jackmyers"
