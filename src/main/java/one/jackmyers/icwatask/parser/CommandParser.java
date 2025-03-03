@@ -10,6 +10,13 @@ import org.antlr.v4.runtime.misc.ParseCancellationException;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
 public class CommandParser {
+  /**
+   * Parses a string of commands in the CommandLang syntax
+   *
+   * @param input input the string containing CommandLang instructions
+   * @return a list of {@link Command}s
+   * @throws ParseCancellationException if the input contains syntax errors or invalid commands
+   */
   public static List<Command> parseString(String input) throws ParseCancellationException {
     var lexer = new CommandLangLexer(CharStreams.fromString(input));
 
