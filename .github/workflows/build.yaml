@@ -4,13 +4,15 @@ on:
   push:
     branches:
       - master
-    paths-ignore: &pathsIgnore
+    paths-ignore:
       - README.md
       - examples/**
   pull_request:
     branches:
       - master
-    paths-ignore: *pathsIgnore
+    paths-ignore:
+      - README.md
+      - examples/**
 
 env:
   REGISTRY: ghcr.io
