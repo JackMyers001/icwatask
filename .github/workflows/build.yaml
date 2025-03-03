@@ -6,6 +6,7 @@ on:
       - master
     paths-ignore: &pathsIgnore
       - README.md
+      - examples/**
   pull_request:
     branches:
       - master
