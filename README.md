@@ -95,6 +95,19 @@ A solution to the [Toy Robot Coding Puzzle] problem created by Jon Eaves.
 [Shadow]: https://github.com/GradleUp/shadow
 [Spotless]: https://github.com/diffplug/spotless
 
+### Notes
+
+I sent an email asking to clarify a couple of things but I didn't get a response in time. The questions (and my interpretations / solutions) are noted here, in addition to the submission email.
+
+- How/where/what test data/results do you want for the app and its logic?
+  - I've included some example test data in the `examples/` folder
+- What kind of "API or other interface" do you want to be able to test my application?
+  - I created a GitHub Action to build and publish a Docker container image to the GitHub Container Registry. Instructions for running are included above
+- How should the program handle grammatically/in-parsable commands?
+  - My program will attempt to parse the entire file, and if it finds any invalid commands, it will terminate. It does not try to parse the file line-by-line, skipping over/erroring when it hits an invalid command
+- Should there be any user feedback for (grammatically) valid but erroneous commands? (i.e. placing the robot outside the bounds, walking off the edge)
+  - There’s no user feedback for erroneous commands
+
 ## Building
 
 ### Requirements
